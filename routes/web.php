@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\EmailVerificationWithoutLoginRequest;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,9 @@ Route::view('/reset', 'auth.change-password')->name('reset');
 Route::view('/password-splash', 'auth.password-changed-splash')->name('password-splash');
 Route::view('/email-splash', 'auth.email-confirmed-splash')->name('email-splash');
 Route::view('/confirmation-splash', 'auth.confirmation-sent-splash')->name('confirmation-splash');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationWithoutLoginRequest $request) {
+	$request->fulfill();
+
+	return redirect()->route('email-splash');
+})->middleware(['signed'])->name('verification.verify');
