@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome')->name('home');
 
 Route::view('/login', 'auth.login')->name('login');
-Route::view('/register', 'auth.register')->name('register');
+Route::controller(RegisterController::class)->group(function () {
+	Route::get('register', 'register')->name('register')->middleware('guest');
+	Route::post('register', 'store')->name('register')->middleware('guest');
+});
+
 Route::view('/forgot', 'auth.forgot')->name('forgot');
 Route::view('/reset', 'auth.change-password')->name('reset');
 Route::view('/password-splash', 'auth.password-changed-splash')->name('password-splash');

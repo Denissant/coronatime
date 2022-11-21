@@ -2,12 +2,12 @@
     <x-form.wrapper-background>
         <x-form.head title="Welcome to Coronatime" :center="false" description="Please enter required info to sign up" />
 
-        <x-form.standard-form action_url="#">
+        <x-form.standard-form action_url="{{ route('register') }}">
 
             <x-form.input name="username" label="Username" placeholder="Enter unique username" hint="Username should be unique, min 3 symbols" />
             <x-form.input name="email" label="Email" placeholder="Enter your email" type="email" />
             <x-form.input name="password" label="Password" placeholder="Enter password" type="password" />
-            <x-form.input name="repeat-password" label="Repeat password" placeholder="Repeat password" type="password" />
+            <x-form.input name="password_confirmation" label="Repeat password" placeholder="Repeat password" type="password" />
 
             <div class="flex items-center justify-between">
                 <x-form.remember />
