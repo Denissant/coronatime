@@ -7,6 +7,6 @@
 </p>
 @enderror
 
-@if ($hint)
+@if ($hint && !$errors->has($name))
 <p class="text-sm mt-1 text-brand-gray">{{ $hint }}</p>
 @endif
