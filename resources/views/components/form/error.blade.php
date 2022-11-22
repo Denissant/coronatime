@@ -1,4 +1,4 @@
-@props(['name', 'hint'])
+@props(['name', 'hint' => ''])
 
 @error($name)
 <p class="text-brand-red text-sm mt-2 flex items-center gap-2">
