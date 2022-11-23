@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule)
 	{
 		$schedule->command('auth:clear-resets')->hourly();
+		$schedule->command('db:update-stats')->daily()->appendOutputTo(storage_path('logs/update-stats.log'));
 	}
 
 	/**
