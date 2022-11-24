@@ -36,8 +36,7 @@ class UpdateStatisticsCommand extends Command
 
 	protected function fetchCountries()
 	{
-		$response = Http::get('https://devtest.ge/countries')->body();
-		return json_decode($response, true);
+		return Http::get('https://devtest.ge/countries')->json();
 	}
 
 	protected function addCountryStatistics($countryId, $countryCode)
@@ -48,10 +47,9 @@ class UpdateStatisticsCommand extends Command
 
 	protected function fetchCountryStatistics($countryCode)
 	{
-		$response = Http::post('https://devtest.ge/get-country-statistics', [
+		$result = Http::post('https://devtest.ge/get-country-statistics', [
 			'code' => $countryCode,
-		])->body();
-		$result = json_decode($response, true);
+		])->json();
 		return array_diff_key($result, array_flip(['id', 'country', 'code', 'critical', 'created_at', 'updated_at']));
 	}
 }
