@@ -8,7 +8,7 @@
 
                 <div class="flex items-center justify-between">
                     <x-form.remember />
-                    <a href="{{ route('forgot') }}" class="text-sm font-semibold text-brand-blue hover:underline">Forgot password?</a>
+                    <a href="{{ route('password.request') }}" class="text-sm font-semibold text-brand-blue hover:underline">Forgot password?</a>
                 </div>
 
                 <x-form.button>Log In</x-form.button>
