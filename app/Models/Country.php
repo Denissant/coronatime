@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use DB;
-use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Country extends Model
 {
+	use HasFactory;
+
 	use HasTranslations;
 
 	protected $guarded = [];
