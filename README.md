@@ -61,10 +61,10 @@
    MAIL_PASSWORD=&lt;password&gt; <br>
    MAIL_ENCRYPTION=&lt;your_password&gt; <br>
 
-3. Run database migrations:
+3. Run database migrations with `seed` parameter to populate the db with Countries:
 
 ```shell
-    php artisan migrate
+    php artisan migrate --seed
 ```
 
 #
