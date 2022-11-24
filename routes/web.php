@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\LoginController;
@@ -18,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::controller(DashboardController::class)->group(function () {
+	Route::get('/', 'home')->name('dashboard.home');
+	Route::get('/countries', 'countries')->name('dashboard.countries');
+});
 
 Route::controller(LoginController::class)->group(function () {
 	Route::get('login', 'login')->name('login')->middleware('guest');
