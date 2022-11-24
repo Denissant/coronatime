@@ -7,4 +7,5 @@
         <x-dashboard.stat-figure index="3" caption="Deaths" number="123123"
                                  background_color_class="bg-[#FCFAEC]" text_color_class="text-brand-yellow" graph_color="yellow"/>
     </div>
+    <x-dashboard.newsletter />
 </x-dashboard.wrapper>
