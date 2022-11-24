@@ -50,6 +50,8 @@ class UpdateStatisticsCommand extends Command
 		$result = Http::post('https://devtest.ge/get-country-statistics', [
 			'code' => $countryCode,
 		])->json();
-		return array_diff_key($result, array_flip(['id', 'country', 'code', 'critical', 'created_at', 'updated_at']));
+		return collect($result)
+			->only('confirmed', 'recovered', 'deaths')
+			->toArray();
 	}
 }
