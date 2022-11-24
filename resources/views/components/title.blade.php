@@ -1,6 +1,6 @@
-@props(['title' => '', 'description' => '', 'center'])
+@props(['title' => '', 'description' => '', 'is_dashboard' => false])
 
-<div class="mb-6 sm:mx-auto sm:w-full sm:max-w-lg xl:max-w-full">
+<div class="mb-6 sm:mx-auto sm:w-full xl:max-w-full @if(!$is_dashboard) sm:max-w-lg @endif">
     @if ('$title')
         <h2 class="mt-10 text-xl font-black lg:mt-14">{{ $title }}</h2>
     @endif

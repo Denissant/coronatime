@@ -1,6 +1,6 @@
 <x-base>
     <x-form.wrapper-center>
-        <x-form.head title="Reset Password" :center="true" />
+        <x-title title="Reset Password" :center="true" />
 
         <x-form.center-form action_url="{{ route('password.email') }}">
             <x-form.input name="email" label="Email" placeholder="Enter your email" type="email" />

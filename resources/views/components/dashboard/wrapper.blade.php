@@ -11,7 +11,7 @@
         </header>
 
         <section class="mt-12 sm:mt-16">
-            <x-form.head title="Worldwide Statistics" :is_dashboard="true" />
+            <x-title title="Worldwide Statistics" :is_dashboard="true" />
             <x-dashboard.section-link href="{{ route('dashboard.home') }}">Worldwide</x-dashboard.section-link>
             <x-dashboard.section-link href="{{ route('dashboard.countries') }}">By Country</x-dashboard.section-link>
             {{ $slot }}
