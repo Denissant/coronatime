@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -16,17 +17,22 @@ class LoginController extends Controller
 		$attributes = $request->validated();
 		$remember = request('remember-me') === 'on';
 
-		if (auth()->attempt($attributes, $remember))
+		if (User::firstWhere('email', $attributes['username']))
 		{
-			session()->regenerate();
-			return redirect()->route('dashboard.home');
+			$attributes['email'] = $attributes['username'];
+			unset($attributes['username']);
 		}
 
-		$attributes['email'] = $attributes['username'];
-		unset($attributes['username']);
 		if (auth()->attempt($attributes, $remember))
 		{
 			session()->regenerate();
+			if (!auth()->user()->hasVerifiedEmail())
+			{
+				auth()->logout();
+				return back()
+					->withInput()
+					->withErrors(['username' => __('Please verify your email before logging in.')]);
+			}
 			return redirect()->route('dashboard.home');
 		}
 
