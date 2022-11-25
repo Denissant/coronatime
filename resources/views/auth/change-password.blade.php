@@ -1,6 +1,6 @@
 <x-base>
     <x-form.wrapper-center>
-        <x-form.head title="Reset Password" :center="true" />
+        <x-title title="Reset Password" :center="true" />
 
         <x-form.center-form action_url="{{ route('password.update') }}">
             <div class="space-y-6">

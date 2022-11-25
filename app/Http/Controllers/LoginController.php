@@ -19,7 +19,7 @@ class LoginController extends Controller
 		if (auth()->attempt($attributes, $remember))
 		{
 			session()->regenerate();
-			return redirect()->route('home');
+			return redirect()->route('dashboard.home');
 		}
 
 		$attributes['email'] = $attributes['username'];
@@ -27,7 +27,7 @@ class LoginController extends Controller
 		if (auth()->attempt($attributes, $remember))
 		{
 			session()->regenerate();
-			return redirect()->route('home');
+			return redirect()->route('dashboard.home');
 		}
 
 		return back()
@@ -39,6 +39,6 @@ class LoginController extends Controller
 	{
 		auth()->logout();
 
-		return redirect()->route('home');
+		return redirect()->route('dashboard.home');
 	}
 }

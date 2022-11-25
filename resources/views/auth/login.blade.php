@@ -1,6 +1,6 @@
 <x-base>
     <x-form.wrapper-background>
-        <x-form.head title="Welcome back" :center="false" description="Welcome back! Please enter your details" />
+        <x-title title="Welcome back" :center="false" description="Welcome back! Please enter your details" />
 
             <x-form.standard-form action_url="#">
                 <x-form.input name="username" label="Username" placeholder="Enter username or email" />

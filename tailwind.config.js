@@ -18,7 +18,8 @@ module.exports = {
                 'brand-light': '#E6E6E7',
                 'brand-blue': '#2029F3',
                 'brand-lightblue': '#DBE8FB',
-                'brand-red': '#CC1E1E'
+                'brand-red': '#CC1E1E',
+                'brand-yellow': '#EAD621'
             },
             spacing: {
                 '5.5': '1.125rem'

@@ -1,6 +1,6 @@
 <x-base>
     <x-form.wrapper-background>
-        <x-form.head title="Welcome to Coronatime" :center="false" description="Please enter required info to sign up" />
+        <x-title title="Welcome to Coronatime" :center="false" description="Please enter required info to sign up" />
 
         <x-form.standard-form action_url="{{ route('register') }}">
 

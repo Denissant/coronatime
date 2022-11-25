@@ -15,4 +15,22 @@ class Statistics extends Model
 	{
 		return $this->belongsTo(Country::class);
 	}
+
+	public static function getWorldwideStats()
+	{
+		$worldwideStats = [
+			'confirmed' => 0,
+			'recovered' => 0,
+			'deaths'    => 0,
+		];
+
+		foreach (Statistics::all() as $statistics)
+		{
+			$worldwideStats['confirmed'] += $statistics['confirmed'];
+			$worldwideStats['recovered'] += $statistics['recovered'];
+			$worldwideStats['deaths'] += $statistics['deaths'];
+		}
+
+		return $worldwideStats;
+	}
 }
