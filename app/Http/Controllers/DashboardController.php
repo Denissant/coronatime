@@ -8,9 +8,7 @@ class DashboardController extends Controller
 {
 	public function home()
 	{
-		$worldwideStats = Statistics::getWorldwideStats(Statistics::all());
-
-		return view('dashboard.home', ['worldwideStats' => $worldwideStats]);
+		return view('dashboard.home', ['worldwideStats' => Statistics::getWorldwideStats()]);
 	}
 
 	public function countries()

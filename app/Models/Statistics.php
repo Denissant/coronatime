@@ -16,7 +16,7 @@ class Statistics extends Model
 		return $this->belongsTo(Country::class);
 	}
 
-	public static function getWorldwideStats($allStats)
+	public static function getWorldwideStats()
 	{
 		$worldwideStats = [
 			'confirmed' => 0,
@@ -24,7 +24,7 @@ class Statistics extends Model
 			'deaths'    => 0,
 		];
 
-		foreach ($allStats as $statistics)
+		foreach (Statistics::all() as $statistics)
 		{
 			$worldwideStats['confirmed'] += $statistics['confirmed'];
 			$worldwideStats['recovered'] += $statistics['recovered'];
