@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Statistics;
 
 class DashboardController extends Controller
@@ -13,5 +14,9 @@ class DashboardController extends Controller
 
 	public function countries()
 	{
+		return view(
+			'dashboard.countries',
+			['worldwideStats' => Statistics::getWorldwideStats(), 'countries' => Country::all()]
+		);
 	}
 }

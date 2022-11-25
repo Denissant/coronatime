@@ -1,4 +1,4 @@
-<x-dashboard.wrapper>
+<x-dashboard.wrapper title="Worldwide Statistics">
     <div class="flex flex-wrap justify-between sm:flex-nowrap sm:space-x-6">
         <x-dashboard.stat-figure index="1" caption="New cases" number="{{ $worldwideStats['confirmed'] }}"
                                  background_color_class="bg-[#EEEEFE]" text_color_class="text-brand-blue" graph_color="blue"/>
