@@ -14,9 +14,11 @@ class DashboardController extends Controller
 
 	public function countries()
 	{
+		$countries = Country::filter(request('search'))->get();
+
 		return view(
 			'dashboard.countries',
-			['worldwideStats' => Statistics::getWorldwideStats(), 'countries' => Country::all()]
+			['worldwideStats' => Statistics::getWorldwideStats(), 'countries' => $countries]
 		);
 	}
 }
