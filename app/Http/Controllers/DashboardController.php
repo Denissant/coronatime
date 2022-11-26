@@ -14,10 +14,16 @@ class DashboardController extends Controller
 
 	public function countries()
 	{
-		$countries = Country::filter(request('search'))
-			->join('statistics', 'statistics.country_id', '=', 'countries.id')
-			->orderBy(request('sort', 'countries.name'), request('sort_direction', 'ASC'))
-			->get();
+		$countries = Country::with('statistics')->filter(request('search'))->get();
+
+		if (request('sort_direction') === 'DESC')
+		{
+			$countries = $countries->sortByDesc(request('sort', 'countries.name'));
+		}
+		else
+		{
+			$countries = $countries->sortBy(request('sort', 'countries.name'));
+		}
 
 		return view(
 			'dashboard.countries',
