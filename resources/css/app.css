@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'FiraGo';
+    src: url('/public/fonts/FiraGO-Heavy.ttf');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'FiraGo';
+    src: url('/public/fonts/FiraGO-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'FiraGo';
+    src: url('/public/fonts/FiraGO-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'FiraGo';
+    src: url('/public/fonts/FiraGO-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'FiraGo';
+    src: url('/public/fonts/FiraGO-Regular.ttf');
+    font-weight: 400;
+}
+
 .bg-gradient-linear-green {
     background: rgb(252,255,129);
     background: linear-gradient(90deg, rgba(252,255,129,1) 0%, rgba(194,255,157,1) 50%, rgba(117,164,255,1) 100%);
