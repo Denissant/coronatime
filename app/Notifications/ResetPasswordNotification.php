@@ -26,9 +26,9 @@ class ResetPasswordNotification extends Notification
 	public function toMail($notifiable)
 	{
 		return (new MailMessage)
-					->subject(__('Reset password'))
-					->line(__('click this button to recover a password'))
-					->action(__('Reset password'), route('password.reset', [$this->token, 'email' => $this->email]))
-					->line(__('If you did not request a password reset, no further action is required.'));
+					->subject(__('auth.reset'))
+					->line(__('auth.click_to_reset'))
+					->action(__('auth.reset'), route('password.reset', [$this->token, 'email' => $this->email]))
+					->line(__('auth.reset_info'));
 	}
 }
