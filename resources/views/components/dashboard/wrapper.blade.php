@@ -1,3 +1,5 @@
+@props(['title'])
+
 <x-base>
     @vite('resources/js/burger-menu.js')
 
@@ -11,9 +13,11 @@
         </header>
 
         <section class="mt-12 sm:mt-16">
-            <x-title title="Worldwide Statistics" :is_dashboard="true" />
-            <x-dashboard.section-link href="{{ route('dashboard.home') }}">Worldwide</x-dashboard.section-link>
-            <x-dashboard.section-link href="{{ route('dashboard.countries') }}">By Country</x-dashboard.section-link>
+            <x-title title="{{ $title }}" :is_dashboard="true" />
+            <div class="border-b border-brand-light">
+                <x-dashboard.section-link href="{{ route('dashboard.home') }}">Worldwide</x-dashboard.section-link>
+                <x-dashboard.section-link href="{{ route('dashboard.countries') }}">By Country</x-dashboard.section-link>
+            </div>
             {{ $slot }}
         </section>
     </main>

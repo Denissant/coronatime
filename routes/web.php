@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(DashboardController::class)->group(function () {
 	Route::get('/', 'home')->name('dashboard.home');
-	Route::get('/countries', 'countries')->name('dashboard.countries');
+	Route::get('/countries', 'countries')->name('dashboard.countries')->middleware('auth');
 });
 
 Route::controller(LoginController::class)->group(function () {
