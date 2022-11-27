@@ -15,8 +15,8 @@
         <section class="mt-12 sm:mt-16">
             <x-title title="{{ $title }}" :is_dashboard="true" />
             <div class="border-b border-brand-light">
-                <x-dashboard.section-link href="{{ route('dashboard.home') }}">Worldwide</x-dashboard.section-link>
-                <x-dashboard.section-link href="{{ route('dashboard.countries') }}">By Country</x-dashboard.section-link>
+                <x-dashboard.section-link href="{{ route('dashboard.home') }}">{{ __('Worldwide') }}</x-dashboard.section-link>
+                <x-dashboard.section-link href="{{ route('dashboard.countries') }}">{{ __('By Country') }}</x-dashboard.section-link>
             </div>
             {{ $slot }}
         </section>
