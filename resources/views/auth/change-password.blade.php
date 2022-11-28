@@ -1,4 +1,6 @@
 <x-base>
+    @vite('resources/js/input-validation.js')
+
     <x-form.wrapper-center>
         <x-title :title="__('auth.reset')" :center="true" />
 
