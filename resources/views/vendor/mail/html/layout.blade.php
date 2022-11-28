@@ -41,6 +41,9 @@
                             <!-- Body content -->
                             <tr>
                                 <td class="content-cell">
+
+                                <img src="{{ asset('/assets/email_screenshot.png') }}"  alt="Dashboard Screenshot"/>
+
                                     {{ Illuminate\Mail\Markdown::parse($slot) }}
 
                                     {{ $subcopy ?? '' }}
