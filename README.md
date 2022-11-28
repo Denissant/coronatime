@@ -8,6 +8,7 @@
 * [Getting Started](#getting-started)
 * [Configuration](#configuration)
 * [Development](#development)
+* [Database Structure](#database-structure)
 
 #
 
@@ -92,3 +93,9 @@ Reformat `.php` files after any changes using PHP Coding Standards Fixer:
 ...or set up your IDE to reformat files automatically with rules defined inside `.php-cs-fixer.php`
 
 #
+
+## Database Structure
+
+[DrawSQL Diagram](https://drawsql.app/teams/team-denis/diagrams/coronatime)
+
+![Database Structure](readme/assets/db-structure-drawsql.png)
