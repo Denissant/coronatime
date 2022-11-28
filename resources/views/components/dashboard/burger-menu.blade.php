@@ -9,11 +9,11 @@
             <div class="block pb-6 sm:pb-0 sm:mr-8 font-bold">{{ auth()->user()->username }}</div>
             <form action="{{ route('logout') }}" method="POST" class="block">
                 @csrf
-                <button type="submit">Log Out</button>
+                <button type="submit">{{ __('dashboard.logout') }}</button>
             </form>
         @else
-            <a href="{{ route('login') }}" class="block pb-6 sm:pb-0 sm:mr-8">Login</a>
-            <a href="{{ route('register') }}" class="block">Sign Up</a>
+            <a href="{{ route('login') }}" class="block pb-6 sm:pb-0 sm:mr-8">{{ __('auth.login') }}</a>
+            <a href="{{ route('register') }}" class="block">{{ __('auth.sign_up') }}</a>
         @endauth
     </div>
 </div>

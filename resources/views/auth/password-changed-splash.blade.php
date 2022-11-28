@@ -5,10 +5,10 @@
                 <div class="mx-auto w-min mb-4">
                     <x-assets.success />
                 </div>
-                <div class="font-normal w-2/3 mx-auto sm:w-full">Your password has been updated successfully</div>
+                <div class="font-normal w-2/3 mx-auto sm:w-full">{{ __('auth.password_updated') }}</div>
             </div>
             <a href="{{ route('login') }}" class="mx-auto mt-auto sm:mt-24 w-full sm:h-auto sm:max-w-sm">
-                <x-form.button>Sign In</x-form.button>
+                <x-form.button>{{ __('auth.sign_in') }}</x-form.button>
             </a>
     </x-form.wrapper-center>
 </x-base>

@@ -31,14 +31,14 @@ class LoginController extends Controller
 				auth()->logout();
 				return back()
 					->withInput()
-					->withErrors(['username' => __('Please verify your email before logging in.')]);
+					->withErrors(['username' => __('validation.verify')]);
 			}
 			return redirect()->route('dashboard.home');
 		}
 
 		return back()
 			->withInput()
-			->withErrors(['password' => __('You have entered an invalid username or password.')]);
+			->withErrors(['password' => __('validation.invalid_credentials')]);
 	}
 
 	public function logout()

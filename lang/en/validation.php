@@ -142,6 +142,10 @@ return [
 	'url'         => 'The :attribute must be a valid URL.',
 	'uuid'        => 'The :attribute must be a valid UUID.',
 
+	'verify'              => 'Please verify your email before logging in',
+	'invalid_credentials' => 'You have entered an invalid username or password.',
+	'not_email'           => 'The :attribute must not be an email.',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines

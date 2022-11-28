@@ -5,7 +5,7 @@
             <div class="mx-auto w-min mb-4">
                 <x-assets.success />
             </div>
-            <div class="font-normal w-2/3 mx-auto sm:w-full">We have sent you a confirmation email</div>
+            <div class="font-normal w-2/3 mx-auto sm:w-full">{{ __('auth.confirmation_sent')}}</div>
         </div>
     </x-form.wrapper-center>
 </x-base>

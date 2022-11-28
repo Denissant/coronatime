@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VerifyEmailController;
@@ -50,3 +51,5 @@ Route::view('/email-splash', 'auth.email-confirmed-splash')->name('email-splash'
 Route::view('/confirmation-splash', 'auth.confirmation-sent-splash')->name('confirmation-splash');
 
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'index'])->middleware(['signed'])->name('verification.verify');
+
+Route::get('language/{locale}', [LanguageController::class, 'edit'])->name('language');

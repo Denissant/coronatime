@@ -12,7 +12,7 @@ class NotEmail implements InvokableRule
 	{
 		if ((new EmailValidator)->isValid($value, new RFCValidation()))
 		{
-			$fail(__('The :attribute must not be an email.'));
+			$fail(__('validation.not_email'));
 		}
 	}
 }

@@ -1,22 +1,22 @@
 <x-base>
     <x-form.wrapper-background>
-        <x-title title="Welcome to Coronatime" :center="false" description="Please enter required info to sign up" />
+        <x-title :title="__('auth.register_welcome')" :center="false" :description="__('auth.register_welcome_description')" />
 
         <x-form.standard-form action_url="{{ route('register') }}">
 
-            <x-form.input name="username" label="Username" placeholder="Enter unique username" hint="Username should be unique, min 3 symbols" />
-            <x-form.input name="email" label="Email" placeholder="Enter your email" type="email" />
-            <x-form.input name="password" label="Password" placeholder="Enter password" type="password" />
-            <x-form.input name="password_confirmation" label="Repeat password" placeholder="Repeat password" type="password" />
+            <x-form.input name="username" :label="__('auth.username')" :placeholder="__('auth.enter_unique_username')" :hint="__('auth.username_hint')" />
+            <x-form.input name="email" :label="__('auth.email')" :placeholder="__('auth.enter_email')" type="email" />
+            <x-form.input name="password" :label="__('auth.password')" :placeholder="__('auth.enter_password')" type="password" />
+            <x-form.input name="password_confirmation" :label="__('auth.repeat_password')" :placeholder="__('Repeat password')" type="password" />
 
             <div class="flex items-center justify-between">
                 <x-form.remember />
             </div>
 
-            <x-form.button>Sign Up</x-form.button>
+            <x-form.button>{{ __('auth.sign_up') }}</x-form.button>
         </x-form.standard-form>
 
-        <x-form.suggestion question="Already have an account?" link_text="Log in" url="{{ route('login') }}" />
+        <x-form.suggestion :question="__('auth.login_question')" :link_text="__('auth.login')" url="{{ route('login') }}" />
 
     </x-form.wrapper-background>
 </x-base>

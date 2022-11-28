@@ -22,5 +22,12 @@ class AppServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
+		view()->composer('components.dashboard.lang-switch', function ($view) {
+			$locales = [
+				'en' => 'English',
+				'ka' => 'ქართული',
+			];
+			$view->with('current_locale', $locales[app()->getLocale()]);
+		});
 	}
 }
