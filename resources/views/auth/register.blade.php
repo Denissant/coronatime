@@ -1,4 +1,6 @@
 <x-base>
+    @vite('resources/js/input-validation.js')
+
     <x-form.wrapper-background>
         <x-title :title="__('auth.register_welcome')" :center="false" :description="__('auth.register_welcome_description')" />
 
