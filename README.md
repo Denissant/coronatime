@@ -109,6 +109,8 @@ The `UpdateStatisticsCommandTest` is using fake Http requests by default. You te
     INCLUDE_EXTERNAL_API_CALLS=true php artisan test
 ```
 
+**Note:** make sure that the app is built with `npm run build` or that `npm run dev` is running before running tests.
+
 #
 
 ## Database Structure
