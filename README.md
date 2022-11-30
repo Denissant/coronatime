@@ -10,6 +10,7 @@
 * [Development](#development)
 * [Running Tests](#running-tests)
 * [Database Structure](#database-structure)
+* [Live Deployment](#live-deployment)
 
 #
 
@@ -109,6 +110,8 @@ The `UpdateStatisticsCommandTest` is using fake Http requests by default. You te
     INCLUDE_EXTERNAL_API_CALLS=true php artisan test
 ```
 
+**Note:** make sure that the app is built with `npm run build` or that `npm run dev` is running before running tests.
+
 #
 
 ## Database Structure
@@ -116,3 +119,8 @@ The `UpdateStatisticsCommandTest` is using fake Http requests by default. You te
 [DrawSQL Diagram](https://drawsql.app/teams/team-denis/diagrams/coronatime)
 
 ![Database Structure](readme/assets/db-structure-drawsql.png)
+
+
+## Live Deployment
+
+https://coronatime.denis.redberryinternship.ge
