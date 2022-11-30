@@ -10,6 +10,7 @@
 * [Development](#development)
 * [Running Tests](#running-tests)
 * [Database Structure](#database-structure)
+* [Live Deployment](#live-deployment)
 
 #
 
@@ -118,3 +119,8 @@ The `UpdateStatisticsCommandTest` is using fake Http requests by default. You te
 [DrawSQL Diagram](https://drawsql.app/teams/team-denis/diagrams/coronatime)
 
 ![Database Structure](readme/assets/db-structure-drawsql.png)
+
+
+## Live Deployment
+
+https://coronatime.denis.redberryinternship.ge
