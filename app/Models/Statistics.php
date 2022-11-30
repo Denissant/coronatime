@@ -11,11 +11,6 @@ class Statistics extends Model
 
 	protected $guarded = [];
 
-	public function statistics()
-	{
-		return $this->belongsTo(Country::class);
-	}
-
 	public static function getWorldwideStats()
 	{
 		$worldwideStats = [

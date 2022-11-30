@@ -8,6 +8,7 @@
 * [Getting Started](#getting-started)
 * [Configuration](#configuration)
 * [Development](#development)
+* [Running Tests](#running-tests)
 * [Database Structure](#database-structure)
 
 #
@@ -91,6 +92,22 @@ Reformat `.php` files after any changes using PHP Coding Standards Fixer:
 ```
 
 ...or set up your IDE to reformat files automatically with rules defined inside `.php-cs-fixer.php`
+
+#
+
+## Running Tests
+
+You can run tests by executing:
+```shell
+    php artisan test
+```
+
+The `UpdateStatisticsCommandTest` is using fake Http requests by default. You test with actual requests by setting the
+`INCLUDE_EXTERNAL_API_CALLS` environment variable to `true`:
+
+```shell
+    INCLUDE_EXTERNAL_API_CALLS=true php artisan test
+```
 
 #
 
