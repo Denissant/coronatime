@@ -25,8 +25,22 @@ class UpdateStatisticsCommand extends Command
 				'code' => $countryData['code'],
 			]);
 			$country->save();
+		}
 
-			$this->addCountryStatistics($country->id, $country->code);
+		$countries = Country::all();
+		$allStatisticsData = [];
+		foreach ($countries as $country)
+		{
+			$this->info($country->code);
+			$allStatisticsData[] = [
+				'statistics' => $this->fetchCountryStatistics($country->code),
+				'country_id' => $country->id,
+			];
+		}
+
+		foreach ($allStatisticsData as $statisticsData)
+		{
+			$this->addCountryStatistics($statisticsData['statistics'], $statisticsData['country_id']);
 		}
 		DB::commit();
 
@@ -39,9 +53,8 @@ class UpdateStatisticsCommand extends Command
 		return Http::get('https://devtest.ge/countries')->json();
 	}
 
-	protected function addCountryStatistics($countryId, $countryCode)
+	protected function addCountryStatistics($statisticsData, $countryId)
 	{
-		$statisticsData = $this->fetchCountryStatistics($countryCode);
 		Statistics::create(array_merge($statisticsData, ['country_id' => $countryId]))->save();
 	}
 
