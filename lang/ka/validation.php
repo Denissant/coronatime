@@ -4,7 +4,7 @@ return [
 	'confirmed'            => 'პაროლები არ ემთხვევა ერთმანეთს.',
 	'current_password'     => 'პაროლი არასწორია.',
 	'email'                => ':attribute არაა ვალიდური.',
-	'required'             => ':attribute-ის შეყვანა აუცილებელია.',
+	'required'             => ':attributeს შეყვანა აუცილებელია.',
 	'unique'               => 'ეს :attribute დაკავებულია.',
 
 	'max' => [
