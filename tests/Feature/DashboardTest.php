@@ -128,20 +128,12 @@ class DashboardTest extends TestCase
 		$countries = Country::with('statistics')->filter($searchQuery)->get();
 		$countries = $countries->sortByDesc('statistics.deaths');
 
-		$cn = [];
-		foreach ($countries as $c)
-		{
-			$cn[] = $c->statistics->deaths;
-		}
-
 		$user = $this->createUser();
 		$response = $this->actingAs($user)->get(route('dashboard.countries', [
 			'search'         => $searchQuery,
 			'sort'           => 'statistics.deaths',
 			'sort_direction' => 'DESC',
 		]));
-
-		//        dd($response);
 
 		$sortedAndFilteredCountriesAndStatistics = [];
 		foreach ($countries as $country)
