@@ -24,10 +24,21 @@ class Country extends Model
 
 	public function scopeFilter(Builder $query, $searchQuery)
 	{
+		$locale = app()->getLocale();
+
 		if ($searchQuery)
 		{
 			$query->where(
-				fn ($query) => $query->where('name', 'like', '%' . $searchQuery . '%')
+				function ($query) use ($searchQuery, $locale) {
+					if ($locale === 'en')
+					{
+						$query->where('name', 'like', '%' . $searchQuery . '%');
+					}
+					else
+					{
+						$query->where("name->$locale", 'like', '%' . $searchQuery . '%');
+					}
+				}
 			);
 		}
 	}
