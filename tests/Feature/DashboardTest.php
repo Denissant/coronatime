@@ -91,7 +91,7 @@ class DashboardTest extends TestCase
 	{
 		$this->artisan('db:seed');
 
-		$firstCountry = Country::all()->take(1)[0];
+		$firstCountry = Country::first();
 		$searchQuery = mb_substr($firstCountry->name, 0, 2);
 
 		$countries = Country::with('statistics')->filter($searchQuery)->get();
