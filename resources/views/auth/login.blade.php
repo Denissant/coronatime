@@ -4,7 +4,7 @@
 
             <x-form.standard-form action_url="{{ route('login') }}">
                 <x-form.input name="username" :label="__('auth.username')" :placeholder="__('auth.enter_username')" />
-                <x-form.input name="password" :label="__('auth.username')" :placeholder="__('auth.enter_password')" type="password" />
+                <x-form.input name="password" :label="__('auth.password')" :placeholder="__('auth.enter_password')" type="password" />
 
                 <div class="flex items-center justify-between">
                     <x-form.remember />
