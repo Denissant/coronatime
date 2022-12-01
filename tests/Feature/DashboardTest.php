@@ -29,9 +29,8 @@ class DashboardTest extends TestCase
 	public function test_countries_dashboard_is_accessible_to_logged_in_users()
 	{
 		$user = $this->createUser();
-		auth()->login($user);
 
-		$response = $this->get(route('dashboard.countries'));
+		$response = $this->actingAs($user)->get(route('dashboard.countries'));
 		$response->assertSee(__('dashboard.statistics_by_country'));
 		$response->assertViewIs('dashboard.countries');
 	}
@@ -55,8 +54,7 @@ class DashboardTest extends TestCase
 		$worldwideStats = Statistics::getWorldwideStats();
 
 		$user = $this->createUser();
-		auth()->login($user);
-		$response = $this->get(route('dashboard.countries'));
+		$response = $this->actingAs($user)->get(route('dashboard.countries'));
 
 		$response->assertSee(__('dashboard.worldwide'));
 		$response->assertSeeInOrder([
@@ -73,8 +71,7 @@ class DashboardTest extends TestCase
 		$countries = $countries->sortBy('countries.name');
 
 		$user = $this->createUser();
-		auth()->login($user);
-		$response = $this->get(route('dashboard.countries'));
+		$response = $this->actingAs($user)->get(route('dashboard.countries'));
 
 		$response->assertSee(__('dashboard.worldwide'));
 		$response->assertSeeInOrder([
@@ -98,8 +95,7 @@ class DashboardTest extends TestCase
 		$countries = $countries->sortBy('countries.name');
 
 		$user = $this->createUser();
-		auth()->login($user);
-		$response = $this->get(route('dashboard.countries', [
+		$response = $this->actingAs($user)->get(route('dashboard.countries', [
 			'search' => $searchQuery,
 		]));
 
@@ -139,8 +135,7 @@ class DashboardTest extends TestCase
 		}
 
 		$user = $this->createUser();
-		auth()->login($user);
-		$response = $this->get(route('dashboard.countries', [
+		$response = $this->actingAs($user)->get(route('dashboard.countries', [
 			'search'         => $searchQuery,
 			'sort'           => 'statistics.deaths',
 			'sort_direction' => 'DESC',
@@ -175,8 +170,7 @@ class DashboardTest extends TestCase
 		$countries = $countries->sortBy('statistics.recovered');
 
 		$user = $this->createUser();
-		auth()->login($user);
-		$response = $this->get(route('dashboard.countries', [
+		$response = $this->actingAs($user)->get(route('dashboard.countries', [
 			'sort'           => 'statistics.recovered',
 			'sort_direction' => 'ASC',
 		]));
@@ -193,7 +187,7 @@ class DashboardTest extends TestCase
 		// Descending
 		$countries = $countries->sortByDesc('statistics.recovered');
 
-		$response = $this->get(route('dashboard.countries', [
+		$response = $this->actingAs($user)->get(route('dashboard.countries', [
 			'sort'           => 'statistics.recovered',
 			'sort_direction' => 'DESC',
 		]));
