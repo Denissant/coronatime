@@ -21,7 +21,7 @@ class LoginTest extends TestCase
 	public function test_can_login_with_valid_username_and_password()
 	{
 		$user = $this->createUser('myusername', 'mail@mail.com', 'mypassword', true);
-		$response = $this->post(route('login'), [
+		$response = $this->post(route('login.authenticate'), [
 			'username' => 'myusername',
 			'password' => 'mypassword',
 		]);
@@ -33,7 +33,7 @@ class LoginTest extends TestCase
 	public function test_can_login_with_valid_email_and_password()
 	{
 		$user = $this->createUser('myusername', 'mail@mail.com', 'mypassword', true);
-		$response = $this->post(route('login'), [
+		$response = $this->post(route('login.authenticate'), [
 			'username' => 'mail@mail.com',
 			'password' => 'mypassword',
 		]);
@@ -45,7 +45,7 @@ class LoginTest extends TestCase
 	public function test_need_to_verify_email_to_login()
 	{
 		$this->createUser('myusername', 'mail@mail.com', 'mypassword');
-		$response = $this->post(route('login'), [
+		$response = $this->post(route('login.authenticate'), [
 			'username' => 'myusername',
 			'password' => 'mypassword',
 		]);
@@ -57,7 +57,7 @@ class LoginTest extends TestCase
 	public function test_can_not_login_with_invalid_credentials()
 	{
 		$this->createUser('myusername', 'mail@mail.com', 'mypassword');
-		$response = $this->post(route('login'), [
+		$response = $this->post(route('login.authenticate'), [
 			'username' => 'WRONG_USERNAME',
 			'password' => 'mypassword',
 		]);
@@ -65,7 +65,7 @@ class LoginTest extends TestCase
 		$response->assertSessionHasErrors(['password' => __('validation.invalid_credentials')]);
 		$this->assertGuest();
 
-		$response = $this->post(route('login'), [
+		$response = $this->post(route('login.authenticate'), [
 			'username' => 'myusername',
 			'password' => 'WRONG_PASSWORD',
 		]);
@@ -77,7 +77,7 @@ class LoginTest extends TestCase
 	public function test_can_log_out()
 	{
 		$user = $this->createUser('myusername', 'mail@mail.com', 'mypassword', true);
-		$this->post(route('login'), [
+		$this->post(route('login.authenticate'), [
 			'username' => 'myusername',
 			'password' => 'mypassword',
 		]);
@@ -91,7 +91,7 @@ class LoginTest extends TestCase
 	public function test_can_remember_device_if_remember_me_is_checked()
 	{
 		$user = $this->createUser('myusername', 'mail@mail.com', 'mypassword', true);
-		$this->post(route('login'), [
+		$this->post(route('login.authenticate'), [
 			'username'    => 'myusername',
 			'password'    => 'mypassword',
 			'remember-me' => 'on',
@@ -105,7 +105,7 @@ class LoginTest extends TestCase
 	public function test_device_is_not_remembered_when_remember_me_is_unchecked()
 	{
 		$user = $this->createUser('myusername', 'mail@mail.com', 'mypassword', true);
-		$this->post(route('login'), [
+		$this->post(route('login.authenticate'), [
 			'username'    => 'myusername',
 			'password'    => 'mypassword',
 		]);
