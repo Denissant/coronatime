@@ -2,7 +2,7 @@
     <x-form.wrapper-background>
         <x-title :title="__('auth.login_welcome')" :center="false" :description="__('auth.login_welcome_description')" />
 
-            <x-form.standard-form action_url="{{ route('login') }}">
+            <x-form.standard-form action_url="{{ route('login.authenticate') }}">
                 <x-form.input name="username" :label="__('auth.username')" :placeholder="__('auth.enter_username')" />
                 <x-form.input name="password" :label="__('auth.password')" :placeholder="__('auth.enter_password')" type="password" />
 

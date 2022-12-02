@@ -103,7 +103,7 @@ class RegisterTest extends TestCase
 
 	private function registerUser($username, $email, $password, $password_confirmation)
 	{
-		return $this->post(route('register'), [
+		return $this->post(route('register.store'), [
 			'username'              => $username,
 			'email'                 => $email,
 			'password'              => $password,

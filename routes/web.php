@@ -27,13 +27,13 @@ Route::controller(DashboardController::class)->group(function () {
 
 Route::controller(LoginController::class)->group(function () {
 	Route::get('login', 'login')->name('login')->middleware('guest');
-	Route::post('login', 'authenticate')->name('login')->middleware('guest');
+	Route::post('login', 'authenticate')->name('login.authenticate')->middleware('guest');
 	Route::post('logout', 'logout')->name('logout')->middleware('auth');
 });
 
 Route::controller(RegisterController::class)->group(function () {
 	Route::get('register', 'register')->name('register')->middleware('guest');
-	Route::post('register', 'store')->name('register')->middleware('guest');
+	Route::post('register', 'store')->name('register.store')->middleware('guest');
 });
 
 Route::controller(ForgotPasswordController::class)->group(function () {

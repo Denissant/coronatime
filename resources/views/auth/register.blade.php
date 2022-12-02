@@ -4,7 +4,7 @@
     <x-form.wrapper-background>
         <x-title :title="__('auth.register_welcome')" :center="false" :description="__('auth.register_welcome_description')" />
 
-        <x-form.standard-form action_url="{{ route('register') }}">
+        <x-form.standard-form action_url="{{ route('register.store') }}">
 
             <x-form.input name="username" :label="__('auth.username')" :placeholder="__('auth.enter_unique_username')" :hint="__('auth.username_hint')" />
             <x-form.input name="email" :label="__('auth.email')" :placeholder="__('auth.enter_email')" type="email" />
