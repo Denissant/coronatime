@@ -103,13 +103,6 @@ You can run tests by executing:
     php artisan test
 ```
 
-The `UpdateStatisticsCommandTest` is using fake Http requests by default. You test with actual requests by setting the
-`INCLUDE_EXTERNAL_API_CALLS` environment variable to `true`:
-
-```shell
-    INCLUDE_EXTERNAL_API_CALLS=true php artisan test
-```
-
 **Note:** make sure that the app is built with `npm run build` or that `npm run dev` is running before running tests.
 
 #

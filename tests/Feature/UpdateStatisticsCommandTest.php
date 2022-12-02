@@ -14,31 +14,26 @@ class UpdateStatisticsCommandTest extends TestCase
 
 	public function test_update_statistics_command_runs_without_errors_and_populates_the_database_correctly()
 	{
-		$finalCountryCount = env('INCLUDE_EXTERNAL_API_CALLS') ? 105 : 1;
-
-		if (!env('INCLUDE_EXTERNAL_API_CALLS'))
-		{
-			Http::fake([
-				'devtest.ge/countries' => Http::response([
-					[
-						'code' => 'GE',
-						'name' => [
-							'en' => 'Georgia',
-							'ka' => 'საქართველო',
-						],
+		Http::fake([
+			'devtest.ge/countries' => Http::response([
+				[
+					'code' => 'GE',
+					'name' => [
+						'en' => 'Georgia',
+						'ka' => 'საქართველო',
 					],
-				]),
-				'devtest.ge/get-country-statistics' => Http::response([
-					'confirmed' => 123,
-					'recovered' => 123,
-					'deaths'    => 123,
-				]),
-			]);
-		}
+				],
+			]),
+			'devtest.ge/get-country-statistics' => Http::response([
+				'confirmed' => 123,
+				'recovered' => 123,
+				'deaths'    => 123,
+			]),
+		]);
 
 		$this->artisan('db:update-stats')->assertExitCode(0);
 
-		$this->assertTrue(Country::count() === Statistics::count() && Country::count() === $finalCountryCount);
+		$this->assertTrue(Country::count() === Statistics::count() && Country::count() === 1);
 
 		$countryCode = 'GE';
 		$countryInDatabase = Country::firstWhere('code', 'GE');
